@@ -95,8 +95,25 @@ int main() {
             printf("%d\n", weather[i]);
         }
         
-        sum = sum + weather[i];
     }
-    printf("MAX_SUM %d", sum);
+    int maxSum;
+    for (int i = 0; i < n; i++)
+    {
+        if (i == 0)
+        {
+            maxSum = weather[i];
+        }
+        int arraySum = weather[i];
+        for (int j = i+1; j < n; j++)
+        {
+            arraySum = arraySum + weather[j];
+        }
+        if (arraySum > maxSum)
+        {
+            maxSum = arraySum;
+        }
+    }
+    
+    printf("MAX_SUM %d", maxSum);
     
 }
