@@ -9,6 +9,7 @@
  */
 #include <stdio.h>
 #include <string.h>
+#include <math.h>
   
 int main() {
     int n;
@@ -20,6 +21,7 @@ int main() {
     {
         scanf("%d", &weather[i]);
         temp_weather[i] = weather[i];
+
     }
     printf("RECOVERED ");
     for (int i = 0; i < n; i++)
@@ -30,7 +32,7 @@ int main() {
             int temp_kanan = -1;
             for (int j = i; j < n; j++)
             {
-                if (temp_weather[j] != -1)
+                if (weather[j] != -1)
                 {
                     temp_kanan = weather[j];
                     break;
@@ -38,7 +40,7 @@ int main() {
             }
             for (int j = i; j >= 0; j--)
             {
-                if (temp_weather[j] != -1)
+                if (weather[j] != -1)
                 {
                     temp_kiri = weather[j];
                     break;
@@ -46,7 +48,7 @@ int main() {
             }
             if (temp_kanan!=-1 && temp_kiri!=-1)
             {
-                weather[i] = (temp_kanan+temp_kiri)/2;
+                weather[i] = (int)floor((temp_kanan+temp_kiri)/2);
             }
             else if (temp_kiri!=-1 && temp_kanan==-1)
             {
