@@ -59,7 +59,15 @@ int main() {
                 weather[i] = 0;
             }
         }
-        printf("%d ", weather[i]);
+        if (i != n-1)
+        {
+            printf("%d ", weather[i]);
+        }
+        else
+        {
+            printf("%d", weather[i]);
+        }
+        
         sum = sum + weather[i];
     }
     printf("\nMAX_SUM %d", sum);
