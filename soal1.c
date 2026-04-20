@@ -63,7 +63,7 @@ int main() {
             }
             if (temp_kanan!=-1 && temp_kiri!=-1)
             {
-                if ((temp_kanan+temp_kiri)/2 < 0)
+                if ((temp_kanan+temp_kiri)/2 <= 0)
                 {
                     weather[i] = floorNegatif(temp_kiri, temp_kanan);
                 }
