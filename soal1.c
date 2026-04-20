@@ -14,10 +14,12 @@ int main() {
     int n;
     scanf("%d", &n);
     int weather[n];
+    int temp_weather[n];
     int sum = 0;
     for (int i = 0; i < n; i++)
     {
         scanf("%d", &weather[i]);
+        temp_weather[i] = weather[i];
     }
     printf("RECOVERED ");
     for (int i = 0; i < n; i++)
@@ -28,15 +30,15 @@ int main() {
             int temp_kanan = -1;
             for (int j = i; j < n; j++)
             {
-                if (weather[j] != -1)
+                if (temp_weather[j] != -1)
                 {
                     temp_kanan = weather[j];
                     break;
                 }
             }
-            for (int j = i; i >= 0; j--)
+            for (int j = i; j >= 0; j--)
             {
-                if (weather[j] != -1)
+                if (temp_weather[j] != -1)
                 {
                     temp_kiri = weather[j];
                     break;
@@ -65,11 +67,11 @@ int main() {
         }
         else
         {
-            printf("%d", weather[i]);
+            printf("%d\n", weather[i]);
         }
         
         sum = sum + weather[i];
     }
-    printf("\nMAX_SUM %d", sum);
+    printf("MAX_SUM %d", sum);
     
 }
