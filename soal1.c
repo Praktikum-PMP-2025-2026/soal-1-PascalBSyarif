@@ -97,20 +97,25 @@ int main() {
         
     }
     int maxSum;
+    int arraySum;
     for (int i = 0; i < n; i++)
     {
         if (i == 0)
         {
             maxSum = weather[i];
         }
-        int arraySum = weather[i];
+        arraySum = weather[i];
+        if (weather[i] > maxSum)
+        {
+            maxSum = weather[i];
+        }
         for (int j = i+1; j < n; j++)
         {
             arraySum = arraySum + weather[j];
-        }
-        if (arraySum > maxSum)
-        {
-            maxSum = arraySum;
+            if (arraySum >= maxSum)
+            {
+                maxSum = arraySum;
+            }
         }
     }
     
