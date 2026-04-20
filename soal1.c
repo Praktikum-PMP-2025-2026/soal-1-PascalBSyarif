@@ -10,7 +10,22 @@
 #include <stdio.h>
 #include <string.h>
 #include <math.h>
-  
+
+int floorNegatif(int a, int b){
+    float float_a = (float)a;
+    float float_b = (float)b;
+    float n = (float)((float_a+float_b)/2);
+    if (n - (floor((a+b)/2)) <= -0.5)
+    {
+        return floor((a+b)/2)-1;
+    }
+    else
+    {
+        return floor((a+b)/2);
+    }
+    
+}
+
 int main() {
     int n;
     scanf("%d", &n);
@@ -48,7 +63,15 @@ int main() {
             }
             if (temp_kanan!=-1 && temp_kiri!=-1)
             {
-                weather[i] = (int)floor((temp_kanan+temp_kiri)/2);
+                if ((temp_kanan+temp_kiri)/2 < 0)
+                {
+                    weather[i] = floorNegatif(temp_kiri, temp_kanan);
+                }
+                else
+                {
+                    weather[i] = (int)floor((temp_kanan+temp_kiri)/2);
+                }
+                
             }
             else if (temp_kiri!=-1 && temp_kanan==-1)
             {
